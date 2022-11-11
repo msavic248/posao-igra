@@ -1,8 +1,10 @@
-export function mediaCounter(counter, app, spans) {
+export function mediaCounter(counter, app, spans, letters) {
 
   //media query for above 576px
   const mediaQuery = window.matchMedia("(min-width: 576px)")
+
   let timerId = null;
+  let win;
 
   function getRandomNumber(min, max) {
     return Math.random() * (max - min) + min;
@@ -10,9 +12,7 @@ export function mediaCounter(counter, app, spans) {
 
   function randomSpans(pc) {
     const winWidth = app.clientWidth;
-    console.log(winWidth);
     const winHeight = app.clientHeight;
-    console.log(winHeight);
 
     for ( let i = 0; i < spans.length; i++ ) {
     
@@ -61,15 +61,25 @@ export function mediaCounter(counter, app, spans) {
       originalCount = 5;
     }
 
-    
-
     const ticker = () => {
       counter.innerHTML=`${count}`
-      
       count--;
+
+      //win condition
+      if(letters.length == 5 && letters.toString() == "P,O,S,A,O") {
+        win = true;
+      }
+
+      if(win){
+        clearInterval(timerId)
+        app.innerHTML = `<h1>Bravo!</h1>
+        <button class="btn">Igraj ponovo</button>`
+      }
+
       //when count reaches 0, reset timer, randomize spans
       if(count < 0) {
         count = originalCount;
+        letters.length = 0;
         randomSpans(pc);
       }
     }
@@ -80,9 +90,12 @@ export function mediaCounter(counter, app, spans) {
     }
 
     timerId = setInterval(ticker, 1000);
-
     randomSpans(pc);
 
+    if(win){
+      console.log("YOU WIN!")
+      clearInterval(timerId);
+    }
   }
   
   mediaQuery.addEventListener("change", handleMediaChange);

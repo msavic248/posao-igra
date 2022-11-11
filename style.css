@@ -101,6 +101,7 @@ span {
   -o-transition: all 1s ease-out;
   transition: all 1s ease-out;
   position: inherit;
+  opacity: 1;
 }
 
 #p {
@@ -140,6 +141,14 @@ span {
 
 .hide {
   display: none;
+}
+
+.transparent {
+  opacity: 0 !important;
+}
+
+.cursor {
+  cursor: default;
 }
 
 @media (prefers-color-scheme: light) {
