@@ -113,26 +113,31 @@ span {
 }
 
 #p {
+  z-index: 5;
   top: 30%;
   left: 45%;
 }
 
 #o1 {
+  z-index: 4;
   top: 36%;
   left: 45%;
 }
 
 #s {
+  z-index: 3;
   top: 42%;
   left: 45%;
 }
 
 #a {
+  z-index: 2;
   top: 48%;
   left: 45%;
 }
 
 #o2 {
+  z-index: 1;
   top: 54%;
   left: 45%;
 }
@@ -153,6 +158,7 @@ span {
 
 .transparent {
   opacity: 0 !important;
+  z-index: 0 !important;
 }
 
 .cursor {

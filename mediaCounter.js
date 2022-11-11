@@ -13,17 +13,12 @@ export function mediaCounter(counter, app, spans, letters) {
   }
 
   function randomSpans(pc) {
-    // const winWidth = app.clientWidth;
-    // const winHeight = app.clientHeight;
-
-    for ( let i = 0; i < spans.length; i++ ) {
-    
-      // shortcut! the current div in the list
-      let thisSpan = spans[i];
+    //for each span, random location
+    spans.forEach(span => {
       let randomTop;
       let randomLeft;
 
-      // get random numbers for each element
+      // get random numbers for each element corresponding to vw
       if(pc){
         randomTop = getRandomNumber(0, 80);
         randomLeft = getRandomNumber(0, 85);
@@ -33,14 +28,15 @@ export function mediaCounter(counter, app, spans, letters) {
       }
       
       //adds .active class
-      thisSpan.classList.add("active");
+      span.classList.add("active");
+
       // update top and left position
-      thisSpan.style.top = randomTop +"vw";
-      thisSpan.style.left = randomLeft +"vw";
-      
-    } 
+      span.style.top = randomTop +"vw";
+      span.style.left = randomLeft +"vw";
+    })
   }
 
+  //checks if in PC or mobile mode
   function handleMediaChange(event) {
     let pc;
     let count;
@@ -136,16 +132,11 @@ export function mediaCounter(counter, app, spans, letters) {
     timerId = setInterval(ticker, 1000);
     randomSpans(pc);
 
-    if(win){
-      console.log("YOU WIN!")
-      clearInterval(timerId);
-    }
   }
   
+  //detects if above or below 576px
   mediaQuery.addEventListener("change", handleMediaChange);
 
   handleMediaChange(mediaQuery);
-
-  
 
 }
