@@ -4,6 +4,41 @@ export function mediaCounter(counter, app, spans) {
   const mediaQuery = window.matchMedia("(min-width: 576px)")
   let timerId = null;
 
+  function getRandomNumber(min, max) {
+    return Math.random() * (max - min) + min;
+  }
+
+  function randomSpans(pc) {
+    const winWidth = app.clientWidth;
+    console.log(winWidth);
+    const winHeight = app.clientHeight;
+    console.log(winHeight);
+
+    for ( let i = 0; i < spans.length; i++ ) {
+    
+      // shortcut! the current div in the list
+      let thisSpan = spans[i];
+      let randomTop;
+      let randomLeft;
+
+      // get random numbers for each element
+      if(pc){
+        randomTop = getRandomNumber(0, 80);
+        randomLeft = getRandomNumber(0, 80);
+      } else {
+        randomTop = getRandomNumber(0, 200);
+        randomLeft = getRandomNumber(0, 85);
+      }
+      
+      //adds .active class
+      thisSpan.classList.add("active");
+      // update top and left position
+      thisSpan.style.top = randomTop +"vw";
+      thisSpan.style.left = randomLeft +"vw";
+      
+    } 
+  }
+
   function handleMediaChange(event) {
     let pc;
     let count;
@@ -26,13 +61,16 @@ export function mediaCounter(counter, app, spans) {
       originalCount = 5;
     }
 
+    
+
     const ticker = () => {
       counter.innerHTML=`${count}`
       
       count--;
-
-      if(count == 0) {
+      //when count reaches 0, reset timer, randomize spans
+      if(count < 0) {
         count = originalCount;
+        randomSpans(pc);
       }
     }
 
@@ -43,39 +81,14 @@ export function mediaCounter(counter, app, spans) {
 
     timerId = setInterval(ticker, 1000);
 
+    randomSpans(pc);
+
   }
   
   mediaQuery.addEventListener("change", handleMediaChange);
 
   handleMediaChange(mediaQuery);
 
-  const winWidth = app.clientWidth;
-  console.log(winWidth);
-  const winHeight = app.clientHeight;
-  console.log(winHeight);
-
-  // i stands for "index". you could also call this banana or haircut. it's a variable
-  for ( let i=0; i < spans.length; i++ ) {
- 	
-    // shortcut! the current div in the list
-    let thisSpan = spans[i];
-    
-    // get random numbers for each element
-    let randomTop = getRandomNumber(0, 80);
-    let randomLeft = getRandomNumber(0, 80);
-    
-    thisSpan.classList.add("active");
-
-    // update top and left position
-    thisSpan.style.top = randomTop +"vw";
-    thisSpan.style.left = randomLeft +"vw";
-    
-  } 
-
-  function getRandomNumber(min, max) {
-    
-    return Math.random() * (max - min) + min;
-      
-  }
+  
 
 }

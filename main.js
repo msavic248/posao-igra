@@ -5,15 +5,15 @@ const array = [];
 const app = document.querySelector('#app');
 
 app.innerHTML = `
-    <span><button id="p">P</button></span>
-    <span><button id="o1">O</button></span>
-    <span><button id="s">S</button></span>
-    <span><button id="a">A</button></span>
-    <span><button id="o2">O</button></span>
+    <span id="p"><button>P</button></span>
+    <span id="o1"><button>O</button></span>
+    <span id="s"><button>S</button></span>
+    <span id="a"><button>A</button></span>
+    <span id="o2"><button>O</button></span>
     <button class="btn">Start</button>
     <p class="counter"></p>
 `
-const container = document.querySelector(".container");
+
 const spans = document.querySelectorAll("span");
 const p = document.querySelector("#p");
 const o1 = document.querySelector("#o1");
@@ -28,7 +28,7 @@ start.addEventListener("click", () => {
   app.classList.remove("flex");
 
   mediaCounter(counter, app, spans);
-
+  
   start.classList.add("hide");
 
 })
