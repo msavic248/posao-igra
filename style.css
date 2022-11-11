@@ -51,6 +51,14 @@ body {
   align-items: center;
 }
 
+.bravo {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding-top: 200px;
+}
+
 button {
   border: 1px solid transparent;
   font-size: inherit;
