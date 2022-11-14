@@ -93,17 +93,10 @@ button:focus-visible {
 }
 
 span {
-  font-size: 6vw;
-  /* -webkit-transition: all 1s ease-out;
-  -moz-transition: all 1s ease-out;
-  -o-transition: all 1s ease-out;
-  transition: all 1s ease-out;
-  position: inherit;
-  top: 0;
-  left: 0; */
+  font-size: 5vw;
 }
 
-#p, #o1, #s, #a, #o2 {
+#s, #w, #i, #t, #c, #h {
   -webkit-transition: all 1s ease-out;
   -moz-transition: all 1s ease-out;
   -o-transition: all 1s ease-out;
@@ -112,37 +105,43 @@ span {
   opacity: 1;
 }
 
-#p {
+#s {
   z-index: 5;
   top: 30%;
   left: 45%;
 }
 
-#o1 {
+#w {
   z-index: 4;
   top: 36%;
   left: 45%;
 }
 
-#s {
+#i {
   z-index: 3;
   top: 42%;
   left: 45%;
 }
 
-#a {
+#t {
   z-index: 2;
   top: 48%;
   left: 45%;
 }
 
-#o2 {
+#c {
   z-index: 1;
   top: 54%;
   left: 45%;
 }
 
-#p.active, #o1.active, #s.active, #a.active, #o2.active {
+#h {
+  z-index: 1;
+  top: 60%;
+  left: 45%;
+}
+
+#s.active, #w.active, #i.active, #t.active, #c.active, #h.active {
   position: sticky;
   transition: all 1s ease-out;
 }

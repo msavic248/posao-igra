@@ -42,16 +42,18 @@ export function mediaCounter(counter, app, spans, letters) {
     let count;
     let originalCount;
 
-    const p = document.querySelector("#p");
-    const pButton = document.querySelector("#pButton");
-    const o1 = document.querySelector("#o1");
-    const o1Button = document.querySelector("#o1Button");
     const s = document.querySelector("#s");
     const sButton = document.querySelector("#sButton");
-    const a = document.querySelector("#a");
-    const aButton = document.querySelector("#aButton");
-    const o2 = document.querySelector("#o2");
-    const o2Button = document.querySelector("#o2Button");
+    const w = document.querySelector("#w");
+    const wButton = document.querySelector("#wButton");
+    const i = document.querySelector("#i");
+    const iButton = document.querySelector("#iButton");
+    const t = document.querySelector("#t");
+    const tButton = document.querySelector("#tButton");
+    const c = document.querySelector("#c");
+    const cButton = document.querySelector("#cButton");
+    const h = document.querySelector("#h");
+    const hButton = document.querySelector("#hButton");
 
     if (event.matches) {
       console.log("PC Mode")
@@ -75,15 +77,15 @@ export function mediaCounter(counter, app, spans, letters) {
       count--;
 
       //win condition
-      if(letters.length == 5 && letters.toString() == "P,O,S,A,O") {
+      if(letters.length == 6 && letters.toString() == "S,W,I,T,C,H") {
         win = true;
       }
 
       if(win){
         clearInterval(timerId)
         app.innerHTML = `<div class="bravo">
-          <h1>Bravo!</h1>
-          <button class="btn">Igraj ponovo</button>
+          <h1>Well done!</h1>
+          <button class="btn">Play again</button>
         </div>`
 
         //play again button resets the game
@@ -100,25 +102,29 @@ export function mediaCounter(counter, app, spans, letters) {
         count = originalCount;
         letters.length = 0;
 
-        p.classList.remove("transparent");
-        pButton.classList.remove("cursor");
-        pButton.removeAttribute("disabled");
-
-        o1.classList.remove("transparent");
-        o1Button.classList.remove("cursor");
-        o1Button.removeAttribute("disabled");
-
         s.classList.remove("transparent");
         sButton.classList.remove("cursor");
         sButton.removeAttribute("disabled");
 
-        a.classList.remove("transparent");
-        aButton.classList.remove("cursor");
-        aButton.removeAttribute("disabled");
+        w.classList.remove("transparent");
+        wButton.classList.remove("cursor");
+        wButton.removeAttribute("disabled");
 
-        o2.classList.remove("transparent");
-        o2Button.classList.remove("cursor");
-        o2Button.removeAttribute("disabled");
+        i.classList.remove("transparent");
+        iButton.classList.remove("cursor");
+        iButton.removeAttribute("disabled");
+
+        t.classList.remove("transparent");
+        tButton.classList.remove("cursor");
+        tButton.removeAttribute("disabled");
+
+        c.classList.remove("transparent");
+        cButton.classList.remove("cursor");
+        cButton.removeAttribute("disabled");
+
+        h.classList.remove("transparent");
+        hButton.classList.remove("cursor");
+        hButton.removeAttribute("disabled");
 
         randomSpans(pc);
       }

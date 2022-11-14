@@ -6,26 +6,29 @@ export default function lettersGame() {
   const app = document.querySelector('#app');
 
   app.innerHTML = `
-      <span id="p"><button id="pButton">P</button></span>
-      <span id="o1"><button id="o1Button">O</button></span>
       <span id="s"><button id="sButton">S</button></span>
-      <span id="a"><button id="aButton">A</button></span>
-      <span id="o2"><button id="o2Button">O</button></span>
+      <span id="w"><button id="wButton">W</button></span>
+      <span id="i"><button id="iButton">I</button></span>
+      <span id="t"><button id="tButton">T</button></span>
+      <span id="c"><button id="cButton">C</button></span>
+      <span id="h"><button id="hButton">H</button></span>
       <button class="btn">Start</button>
       <p class="counter"></p>
   `
 
   const spans = document.querySelectorAll("span");
-  const p = document.querySelector("#p");
-  const pButton = document.querySelector("#pButton");
-  const o1 = document.querySelector("#o1");
-  const o1Button = document.querySelector("#o1Button");
   const s = document.querySelector("#s");
   const sButton = document.querySelector("#sButton");
-  const a = document.querySelector("#a");
-  const aButton = document.querySelector("#aButton");
-  const o2 = document.querySelector("#o2");
-  const o2Button = document.querySelector("#o2Button");
+  const w = document.querySelector("#w");
+  const wButton = document.querySelector("#wButton");
+  const i = document.querySelector("#i");
+  const iButton = document.querySelector("#iButton");
+  const t = document.querySelector("#t");
+  const tButton = document.querySelector("#tButton");
+  const c = document.querySelector("#c");
+  const cButton = document.querySelector("#cButton");
+  const h = document.querySelector("#h");
+  const hButton = document.querySelector("#hButton");
 
   const start = document.querySelector(".btn");
   const counter = document.querySelector(".counter");
@@ -37,50 +40,59 @@ export default function lettersGame() {
     app.classList.remove("flex");
     start.classList.add("hide");
 
-    //P button
-    p.addEventListener("click", () => {
-      letters.push("P")
-
-      //hides and disables button
-      p.classList.add("transparent");
-      pButton.classList.add("cursor");
-      pButton.setAttribute("disabled", "disabled");
-    })
-
-    //First O button
-    o1.addEventListener("click", () => {
-      letters.push("O")
-
-      o1.classList.add("transparent");
-      o1Button.classList.add("cursor");
-      o1Button.setAttribute("disabled", "disabled");
-    })
-
     //S button
     s.addEventListener("click", () => {
       letters.push("S")
 
+      //hides and disables button
       s.classList.add("transparent");
       sButton.classList.add("cursor");
       sButton.setAttribute("disabled", "disabled");
     })
 
-    //A button
-    a.addEventListener("click", () => {
-      letters.push("A")
+    //W button
+    w.addEventListener("click", () => {
+      letters.push("W")
 
-      a.classList.add("transparent");
-      aButton.classList.add("cursor");
-      aButton.setAttribute("disabled", "disabled");
+      w.classList.add("transparent");
+      wButton.classList.add("cursor");
+      wButton.setAttribute("disabled", "disabled");
     })
 
-    //Second O button
-    o2.addEventListener("click", () => {
-      letters.push("O")
+    //I button
+    i.addEventListener("click", () => {
+      letters.push("I")
 
-      o2.classList.add("transparent");
-      o2Button.classList.add("cursor");
-      o2Button.setAttribute("disabled", "disabled");
+      i.classList.add("transparent");
+      iButton.classList.add("cursor");
+      iButton.setAttribute("disabled", "disabled");
+    })
+
+    //T button
+    t.addEventListener("click", () => {
+      letters.push("T")
+
+      t.classList.add("transparent");
+      tButton.classList.add("cursor");
+      tButton.setAttribute("disabled", "disabled");
+    })
+
+    //C button
+    c.addEventListener("click", () => {
+      letters.push("C")
+
+      c.classList.add("transparent");
+      cButton.classList.add("cursor");
+      cButton.setAttribute("disabled", "disabled");
+    })
+
+    //H button
+    h.addEventListener("click", () => {
+      letters.push("H")
+
+      h.classList.add("transparent");
+      hButton.classList.add("cursor");
+      hButton.setAttribute("disabled", "disabled");
     })
 
     //timer and randomizer
